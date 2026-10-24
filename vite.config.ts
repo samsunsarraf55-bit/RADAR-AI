@@ -5,7 +5,7 @@ import {defineConfig} from 'vite';
 
 export default defineConfig(() => {
   return {
-base: '/RADAR-AI/',
+    base: '/RADAR-AI/',
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
