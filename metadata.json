@@ -1,0 +1,7 @@
+{
+  "name": "Canlı Finans & Kuyumcu Döviz Aggregator",
+  "description": "6 farklı firmanın canlı altın ve döviz kurlarını konsolide eden, Gemini yapay zeka piyasa analizi ve Google Drive entegrasyonlu finans terminali.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+

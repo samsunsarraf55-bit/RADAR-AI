@@ -1,0 +1,80 @@
+{
+  "entities": {
+    "userProfile": {
+      "title": "UserProfile",
+      "description": "User profile information",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["email", "createdAt"]
+    },
+    "portfolioItem": {
+      "title": "PortfolioItem",
+      "description": "User gold and currency portfolio assets",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "assetType": { "type": "string" },
+        "title": { "type": "string" },
+        "quantity": { "type": "number" },
+        "purchasePrice": { "type": "number" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["userId", "assetType", "quantity"]
+    },
+    "priceAlert": {
+      "title": "PriceAlert",
+      "description": "User price target notifications",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "assetCode": { "type": "string" },
+        "condition": { "type": "string" },
+        "targetPrice": { "type": "number" },
+        "active": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["userId", "assetCode", "condition", "targetPrice"]
+    },
+    "firmPriceTick": {
+      "title": "FirmPriceTick",
+      "description": "Historical price change recorded for a specific firm",
+      "type": "object",
+      "properties": {
+        "firmKey": { "type": "string" },
+        "firmName": { "type": "string" },
+        "code": { "type": "string" },
+        "buy": { "type": "number" },
+        "sell": { "type": "number" },
+        "changeFromPrevBuy": { "type": "number" },
+        "direction": { "type": "string" },
+        "timestamp": { "type": "string" }
+      },
+      "required": ["firmKey", "code", "buy", "sell", "timestamp"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "userProfile",
+      "description": "User document"
+    },
+    "/users/{userId}/portfolio/{itemId}": {
+      "schema": "portfolioItem",
+      "description": "User portfolio items collection"
+    },
+    "/users/{userId}/alerts/{alertId}": {
+      "schema": "priceAlert",
+      "description": "User price alerts collection"
+    },
+    "/firms/{firmKey}/priceHistory/{tickId}": {
+      "schema": "firmPriceTick",
+      "description": "Historical price ticks for each firm"
+    }
+  }
+}
